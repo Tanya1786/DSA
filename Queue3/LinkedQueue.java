@@ -1,4 +1,4 @@
-package cheatsheet.Queue;
+package Queue3;
 
 public class LinkedQueue<T> implements QueueInterface<T> {
     private Node<T> frontNode; 

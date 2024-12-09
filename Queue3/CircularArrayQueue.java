@@ -1,4 +1,4 @@
-package cheatsheet.Queue;
+package Queue3;
 
 public final class CircularArrayQueue<T> implements QueueInterface<T> {
     private T[] queue;

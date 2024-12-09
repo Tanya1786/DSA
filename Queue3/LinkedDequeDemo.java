@@ -1,4 +1,4 @@
-package cheatsheet.Queue;
+package Queue3;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -8,9 +8,7 @@ public class LinkedDequeDemo {
         LinkedDeque<String> deque = new LinkedDeque<>();
         boolean running = true;
         Scanner scanner = new Scanner(System.in);
-
         while (running) {
-            // Display the menu options
             System.out.println("""
                     Choose an operation:
                     1. Add to Front
@@ -24,12 +22,10 @@ public class LinkedDequeDemo {
                     9. Print Deque
                     10. Exit
                     """);
-
             try {
                 System.out.print("Enter your choice: ");
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // consume newline
-
+                scanner.nextLine(); 
                 switch (choice) {
                     case 1 -> {
                         System.out.print("Enter a value to add to the front: ");
@@ -72,37 +68,21 @@ public class LinkedDequeDemo {
                         System.out.println("Deque contents:\n" + dequeContents);
                     }
                     case 10 -> {
-                        System.out.println("Exiting...");
                         running = false;
                     }
                     default -> System.out.println("Invalid choice. Please select a number between 1 and 10.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
-                scanner.nextLine(); // consume invalid input
+                scanner.nextLine(); 
             } catch (EmptyQueueException e) {
                 System.out.println("Error: Deque is empty.");
             }
         }
-
-        // Close the scanner
         scanner.close();
     }
 
-    // Helper method to print the deque without modifying it
     private static String printDeque(LinkedDeque<String> deque) {
-        StringBuilder dequeContents = new StringBuilder();
-
-        try {
-            while (!deque.isEmpty()) {
-                String data = deque.removeFront();
-                dequeContents.append(data).append("\n");
-                deque.addToBack(data); // Add back to preserve the original order
-            }
-        } catch (EmptyQueueException e) {
-            // This should not happen as we are using isEmpty() check
-        }
-
-        return dequeContents.toString().trim();
+        return deque.getDequeContents();
     }
 }

@@ -1,4 +1,4 @@
-package cheatsheet.Queue;
+package Queue3;
 
 public final class LinkedDeque<T> implements DequeInterface<T> {
     private DLNode firstNode; // References node at front of deque
@@ -94,19 +94,20 @@ public final class LinkedDeque<T> implements DequeInterface<T> {
         lastNode = null;
     }
 
-    public void printDeque() {
+    public String getDequeContents() {
         if (isEmpty()) {
-            System.out.println("Deque is empty.");
-            return;
+            return "";
         }
 
-        StringBuilder dequeContents = new StringBuilder("Deque: ");
+        StringBuilder dequeContents = new StringBuilder();
         DLNode currentNode = firstNode;
+        
         while (currentNode != null) {
-            dequeContents.append(currentNode.getData()).append(" ");
+            dequeContents.append(currentNode.getData()).append("\n");
             currentNode = currentNode.getNextNode();
         }
-        System.out.println(dequeContents.toString().trim());
+
+        return dequeContents.toString().trim();
     }
 
     private class DLNode {
@@ -122,10 +123,6 @@ public final class LinkedDeque<T> implements DequeInterface<T> {
 
         private T getData() {
             return data;
-        }
-
-        private void setData(T newData) {
-            data = newData;
         }
 
         private DLNode getNextNode() {

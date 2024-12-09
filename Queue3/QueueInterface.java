@@ -1,4 +1,4 @@
-package cheatsheet.Queue;
+package Queue3;
 
 public interface QueueInterface<T> {
   void enqueue(T newEntry);

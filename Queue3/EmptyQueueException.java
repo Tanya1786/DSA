@@ -1,4 +1,4 @@
-package cheatsheet.Queue;
+package Queue3;
 
 public class EmptyQueueException extends RuntimeException {
     public EmptyQueueException() {
