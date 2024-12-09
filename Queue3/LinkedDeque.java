@@ -1,8 +1,8 @@
 package Queue3;
 
 public final class LinkedDeque<T> implements DequeInterface<T> {
-    private DLNode firstNode; // References node at front of deque
-    private DLNode lastNode;  // References node at back of deque
+    private DLNode firstNode; 
+    private DLNode lastNode;  
 
     public LinkedDeque() {
         firstNode = null;

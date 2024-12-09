@@ -1,6 +1,6 @@
 package Heap;
 
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public final class MinHeap<T extends Comparable<? super T>> implements MinHeapInterface<T> {
     private T[] heap;
@@ -30,7 +30,7 @@ public final class MinHeap<T extends Comparable<? super T>> implements MinHeapIn
     public T getMin() {
         checkIntegrity();
         if (isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Heap is empty.");
+            System.out.println("Heap is empty.");
             return null;
         } else {
             return heap[1];
@@ -66,7 +66,7 @@ public final class MinHeap<T extends Comparable<? super T>> implements MinHeapIn
     public T removeMin() {
         checkIntegrity();
         if (isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Can't remove. Heap is empty.");
+            System.out.println("Can't remove. Heap is empty.");
             return null;
         } else {
             T root = heap[1];
@@ -91,15 +91,15 @@ public final class MinHeap<T extends Comparable<? super T>> implements MinHeapIn
     public void display() {
         checkIntegrity();
         if (isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Heap is empty.");
+            System.out.println("Heap is empty.");
             return;
         }
 
-        StringBuilder heapContents = new StringBuilder("Heap: ");
+        System.out.print("Heap: ");
         for (int index = 1; index <= lastIndex; index++) {
-            heapContents.append(heap[index]).append(" ");
+            System.out.print(heap[index] + " ");
         }
-        JOptionPane.showMessageDialog(null, heapContents.toString().trim());
+        System.out.println();
     }
 
     private void checkCapacity(int capacity) {
